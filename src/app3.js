@@ -1,6 +1,12 @@
 const http = require('http');
 
 const server = http.createServer((request, response) => {
+    let data = '';
+
+    request.on('data', function (chunk) {
+        data += chunk;
+    });
+
     request.on('end', () => {
         const method = request.method;
         const headers = JSON.stringify(request.headers);
