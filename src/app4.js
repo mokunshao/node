@@ -7,6 +7,7 @@ http.request(
         host: 'localhost',
         port: 9000,
         method: 'get',
+        path: '/login?username=abc&password=123',
     },
     function (response) {
         response.on('data', function (chunk) {
