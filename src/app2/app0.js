@@ -20,3 +20,14 @@ fs.writeFile('./myTest.txt', 'hello, my test', function (err) {
         console.log(err);
     }
 });
+
+fs.writeFile(
+    './myTest2.txt',
+    'hello, my test append\r\n',
+    { flag: 'a' },
+    function (err) {
+        if (err) {
+            console.log(err);
+        }
+    }
+);
