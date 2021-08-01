@@ -14,3 +14,9 @@ try {
 } catch (e) {
     console.log(e);
 }
+
+fs.writeFile('./myTest.txt', 'hello, my test', function (err) {
+    if (err) {
+        console.log(err);
+    }
+});
