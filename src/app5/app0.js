@@ -37,4 +37,9 @@ ws.on('connection', (socket) => {
     socket.on('clientEvent', (data) => {
         console.log('clientEvent: ', data);
     });
+
+    socket.on('broadcastEventClient', (message) => {
+        console.log(message);
+        socket.broadcast.emit('broadcastEventServer', 'you are good');
+    });
 });

@@ -18,6 +18,11 @@
                 console.log('serverEvent:' + data);
                 ws.emit('clientEvent', { address: 'China', age: 20 });
             });
+            ws.emit('broadcastEventClient', 'take care');
+
+            ws.on('broadcastEventServer', (message) => {
+                console.log(message);
+            });
         </script>
     </head>
     <body>
