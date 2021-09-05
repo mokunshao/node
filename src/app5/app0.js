@@ -22,8 +22,6 @@ server.listen(3000, 'localhost');
 
 const ws = new io.Server(server);
 
-// ws.listen(server);
-
 ws.on('connection', (socket) => {
     console.log('connection has been established');
     socket.on('message', (message) => {
@@ -33,4 +31,10 @@ ws.on('connection', (socket) => {
         console.log('connection has lost');
     });
     socket.send('hello client');
+
+    socket.emit('serverEvent', 'this is serverEvent');
+
+    socket.on('clientEvent', (data) => {
+        console.log('clientEvent: ', data);
+    });
 });

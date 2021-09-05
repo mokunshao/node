@@ -14,6 +14,10 @@
             ws.on('disconnect', () => {
                 console.log('disconnect');
             });
+            ws.on('serverEvent', (data) => {
+                console.log('serverEvent:' + data);
+                ws.emit('clientEvent', { address: 'China', age: 20 });
+            });
         </script>
     </head>
     <body>
